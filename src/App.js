@@ -8,8 +8,12 @@ function App() {
   const [listOfFriends, setListOfFriends] = useState([]);
 
   const addFriend = () => {
-    Axios.post('http://localhost:3001/addfriend', { name: name, age: age })
+    Axios.post('http://localhost:3001/addfriend', {
+      name: name,
+      age: age,
+    })
       .then(() => {
+        setListOfFriends([...listOfFriends, { name: name, age: age }]);
         console.log('Friend Sent!');
       })
       .catch(() => {
@@ -49,14 +53,21 @@ function App() {
 
         <button onClick={addFriend}>Add Friend</button>
       </div>
-      {listOfFriends.map((val) => {
-        console.log(val);
-        return (
-          <div key={val._id}>
-            {val.name} {val.age}
-          </div>
-        );
-      })}
+      <div className='listOfFriends'>
+        {listOfFriends.map((val) => {
+          console.log(val);
+          return (
+            <div className='friendContainer'>
+              <div className='friend' key={val._id}>
+                <h3>Name: {val.name}</h3>
+                <h3>Age: {val.age}</h3>
+              </div>
+              <button>Update</button>
+              <button>X</button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

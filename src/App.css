@@ -37,6 +37,39 @@ body {
   font-size: 15px;
 }
 
-.inputs button:hover {
+button:hover {
   cursor: pointer;
+}
+
+.listOfFriends {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.friendContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.friend {
+  width: 300px;
+  height: 60px;
+  background-color: cornsilk;
+  display: flex;
+}
+
+.friend h3 {
+  margin-left: 15px;
+}
+
+.friendContainer button {
+  width: 60px;
+  height: 60px;
+  border: 2px solid black;
+  background-color: bisque;
 }
